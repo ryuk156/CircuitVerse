@@ -624,7 +624,7 @@ div.icon img {
 .img__description {
     position: absolute;
     /*top: 0;*/
-    bottom: -10;
+    bottom: -16;
     left: 0;
     right: 0;
     background-color: #0099ff;
