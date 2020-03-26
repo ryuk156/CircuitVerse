@@ -371,6 +371,10 @@
     <div class="modal-content">
       <div class="container my-2">
         <LABEL>Shortcut key for clear project</LABEL>&nbsp;&nbsp;&nbsp;
+        <select id="hotkeys"  style="width: 100px;padding: ">
+        <option value="e.Shiftkey">Shift</option>
+        <option value="e.altkey">alt</option>
+     </select>&nbsp;&nbsp;&nbsp; <span>+</span>&nbsp;&nbsp;&nbsp; 
       <select id="name"  style="width: 100px;padding: ">
         <option value="73">i</option>
         <option value="76">l</option>
@@ -392,16 +396,19 @@
    
 <script type="text/javascript">
    function savekey(){
-      var x=document.getElementById('name').value;
+       var x=document.getElementById('name').value;
+       var y=document.getElementById('hotkeys').value;
+      localStorage.setItem("hotkey", y);
       localStorage.setItem("shortcut", x);
    }
 
 
   document.onkeyup=function(e){
+  var c= localStorage.getItem("hotkey");
   var b= localStorage.getItem("shortcut");
-  var e = e || window.event; // for IE to cover IEs window event-object
-  if(e.altKey && e.which == b) {
-    clearProject();
+ var e = e || window.event; // for IE to cover IEs window event-object
+  if( c && e.which == b) {
+      clearProject();
     
   }
 }
