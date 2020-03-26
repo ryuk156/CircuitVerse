@@ -42,6 +42,14 @@
           <li><a class="dropdown-item logixButton" id="createSaveAsImgPrompt">Download Image</a>
         </ul>
       </li>
+       <li class="dropdown">
+        <a href="#" class="dropdown-toggle text-light" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preference<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li> <a type="button" class="btn "  >Color Themes</a></li>
+          <li> <a type="button" class="btn " data-toggle="modal" data-target=".bd-example-modal-lg">shortcuts</a></li>
+          
+        </ul>
+      </li>
       <li class="">
         <a href="https://docs.circuitverse.org" class="text-light" target="_blank" role="button" aria-haspopup="true" aria-expanded="false">Help</a>
       </li>
@@ -357,5 +365,48 @@
   
 }) 
 </script>
+    <!---shortcut task---->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="container my-2">
+        <LABEL>Shortcut key for clear project</LABEL>&nbsp;&nbsp;&nbsp;
+      <select id="name"  style="width: 100px;padding: ">
+        <option value="73">i</option>
+        <option value="76">l</option>
+        <option value="85">u</option>
+     </select>
+   </div>
+   <div class="container my-2">
+     <button class="btn btn-primary" type="submit" name="Done" style="width: 100px" onclick="savekey()">Done</button>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+   
+<script type="text/javascript">
+   function savekey(){
+      var x=document.getElementById('name').value;
+      localStorage.setItem("shortcut", x);
+   }
+
+
+  document.onkeyup=function(e){
+  var b= localStorage.getItem("shortcut");
+  var e = e || window.event; // for IE to cover IEs window event-object
+  if(e.altKey && e.which == b) {
+    clearProject();
     
+  }
+}
+
+</script>
+
+
     
